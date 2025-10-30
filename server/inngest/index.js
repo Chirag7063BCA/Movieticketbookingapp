@@ -1,5 +1,5 @@
 import { Inngest } from "inngest";
-import User from "../modules/User.js";
+import User from "../models/User.js";
 
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "movie-ticket-booking" });
@@ -15,13 +15,13 @@ const syncUserCreation = inngest.createFunction(
       _id: id,
       email: email_addresses[0].email_address,
       name: first_name + ' ' + last_name,
-      image: image_url
+      image: image_url,
     }
 await User.create(userData)
   
   }
 )
-//inngest function to save user data to a database
+// Inngest function to delete user data from database
 const syncUserDeletion = inngest.createFunction(
   { id: 'delete-user-with-clerk'},
   { event: 'clerk/user.deleted' },
@@ -32,7 +32,7 @@ const syncUserDeletion = inngest.createFunction(
   }
 )
 
-//inngest function to save user data to a database
+// Inngest function to update user data in database
 const syncUserUpdation = inngest.createFunction(
   { id: 'update-user-with-clerk'},
   { event: 'clerk/user.updated' },
