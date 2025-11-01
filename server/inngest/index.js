@@ -96,7 +96,7 @@ const sendBookingConfirmationEmail = inngest.createFunction(
       subject: `Payment Confirmation: "${booking.show.movie.title}" booked !`,
       body: `<div style="font-family: Arial, sans-serif; line-height: 1.5;">
                    <h2>Hi ${booking.user.name},</h2>
-                   <p>Your booking for <strong style="color: #F84565;">"${
+                    <p>Your booking for <strong style="color: #F84565;">"${
                      booking.show.movie.title
                    }"</strong> is confirmed.</p>
                    <p>
@@ -152,4 +152,5 @@ export const functions =
  syncUserDeletion,
 syncUserUpdation,
 releaseSeatsAndDeleteBooking,
-sendBookingConfirmationEmail];
+sendBookingConfirmationEmail,
+sendNewShowNotification];
