@@ -151,4 +151,5 @@ export const functions =
 [syncUserCreation ,
  syncUserDeletion,
 syncUserUpdation,
-releaseSeatsAndDeleteBooking];
+releaseSeatsAndDeleteBooking,
+sendBookingConfirmationEmail];
